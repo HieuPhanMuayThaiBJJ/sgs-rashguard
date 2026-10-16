@@ -1,0 +1,28 @@
+name: Restructure site v2
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Move files, build og image, add meta tags
+        run: |
+          set -e
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq imagemagick fonts-dejavu-core
+          if command -v magick >/dev/null; then C=magick; else C=convert; fi
+          git mv sgs-site/* .
+          for p in m1 f1 m3 f3; do $C $p.jpg -resize 300x630^ -gravity north -extent 300x630 +repage p_$p.jpg; done
+          $C p_m1.jpg p_f1.jpg p_m3.jpg p_f3.jpg +append strip.jpg
+          $C strip.jpg -fill '#04122e' -colorize 58% shade.jpg
+          $C shade.jpg \( logo-white.png -resize 500x \) -gravity west -geometry +70-50 -composite -font DejaVu-Sans -pointsize 26 -fill white -gravity southwest -annotate +74+70 'SGS GENESIS  -  Every legacy has a beginning.' -font DejaVu-Sans-Bold -pointsize 30 -fill '#C6FF34' -annotate +74+118 'PRE-ORDER  17/10 - 20/10' -quality 86 og.jpg
+          rm -f p_*.jpg strip.jpg shade.jpg
+          U=https://hieuphanmuaythaibjj.github.io/sgs-rashguard
+          sed -i "/property=\"og:description\"/a <meta property=\"og:type\" content=\"website\">\n<meta property=\"og:url\" content=\"$U/\">\n<meta property=\"og:image\" content=\"$U/og.jpg\">\n<meta property=\"og:image:width\" content=\"1200\">\n<meta property=\"og:image:height\" content=\"630\">\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:image\" content=\"$U/og.jpg\">" index.html
+          git config user.name github-actions
+          git config user.email actions@github.com
+          git add -A
+          git commit -m "Move site to repo root, add social preview image"
+          git push
