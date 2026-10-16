@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SGS Genesis — Rashguard Pre-order | Saigon Grappling Society</title>
+<meta name="description" content="SGS Genesis: sự khai sinh của một cộng đồng grappling mới tại Sài Gòn. Đặt trước combo rashguard và Combat Shorts của Saigon Grappling Society.">
+<meta name="theme-color" content="#04122e">
+<meta property="og:title" content="SGS Genesis — Saigon Grappling Society">
+<meta property="og:description" content="Every legacy has a beginning. Đặt trước combo rashguard + Combat Shorts SGS.">
+
+<link rel="icon" id="favicon" href="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:ital,wght@0,400;0,500;0,600;1,300;1,400&family=Barlow+Condensed:wght@500;600;700&display=swap&subset=vietnamese" rel="stylesheet">
+<style>
+:root{
+  --blue:#083A82; --blue2:#2a6be0; --navy:#04122e; --ink:#030c20;
+  --lime:#C6FF34; --cream:#EADCC6; --white:#F7F8FA;
+  --line:rgba(247,248,250,.13); --muted:rgba(247,248,250,.7);
+  --display:'Anton','Impact',sans-serif;
+  --cond:'Barlow Condensed','Arial Narrow',sans-serif;
+  --body:'Barlow',system-ui,sans-serif;
+  --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--white);background:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+section{padding:104px 0;position:relative}
+
+/* ---------- khói nền ---------- */
+.smoke-fixed{position:fixed;inset:0;z-index:-1;overflow:hidden;background:
+  radial-gradient(1000px 700px at 85% -5%,rgba(42,107,224,.28),transparent 60%),
+  linear-gradient(180deg,#041029,#030c20 60%,#02081a)}
+.smoke-fixed i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;will-change:transform;animation:drift 26s ease-in-out infinite alternate}
+.smoke-fixed i:nth-child(1){width:60vmax;height:44vmax;left:-18vmax;top:12vh;background:radial-gradient(closest-side,rgba(27,95,208,.55),transparent)}
+.smoke-fixed i:nth-child(2){width:52vmax;height:40vmax;right:-16vmax;top:48vh;background:radial-gradient(closest-side,rgba(60,120,230,.4),transparent);animation-duration:34s;animation-delay:-8s}
+.smoke-fixed i:nth-child(3){width:46vmax;height:32vmax;left:22vw;bottom:-14vmax;background:radial-gradient(closest-side,rgba(198,255,52,.09),transparent);animation-duration:40s;animation-delay:-14s}
+@keyframes drift{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(7vw,-5vh,0) scale(1.18)}}
+
+/* ---------- chung ---------- */
+.eyebrow{font-family:var(--cond);font-weight:600;letter-spacing:.34em;text-transform:uppercase;font-size:.82rem;color:var(--lime);display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--lime);opacity:.8}
+h2.title{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(2.2rem,5.2vw,3.9rem);line-height:1.04;margin:14px 0 16px;letter-spacing:.012em}
+.lead{color:var(--muted);max-width:60ch;font-size:1.06rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--cond);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.98rem;padding:15px 30px;border:1px solid var(--lime);background:var(--lime);color:var(--ink);cursor:pointer;border-radius:999px;transition:transform .3s,box-shadow .3s,background .3s,opacity .3s;box-shadow:0 8px 30px -10px rgba(198,255,52,.55)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px -10px rgba(198,255,52,.7)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+.btn.ghost{background:rgba(247,248,250,.06);color:var(--white);border-color:var(--line);backdrop-filter:blur(8px);box-shadow:none}
+.btn.ghost:hover{border-color:rgba(247,248,250,.5);background:rgba(247,248,250,.1)}
+.btn.sm{padding:10px 22px;font-size:.86rem}
+
+/* ---------- nav ---------- */
+nav{position:fixed;inset:0 0 auto 0;z-index:60;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(3,12,32,.72);backdrop-filter:blur(18px);border-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:80px}
+.brand img{height:58px;width:auto}
+.nav-links{display:flex;gap:30px;align-items:center;font-family:var(--cond);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.9rem}
+.nav-links a:not(.btn){color:var(--muted);transition:color .2s}
+.nav-links a:not(.btn):hover{color:var(--white)}
+@media(max-width:820px){.nav-links a:not(.btn){display:none}.brand img{height:46px}}
+
+/* ---------- hero: ảnh trải dài ---------- */
+.hero{position:relative;min-height:100svh;min-height:max(100svh,720px);display:flex;align-items:flex-end;overflow:hidden;padding:0}
+.hero-bg{position:absolute;inset:8% 0 -2%;display:grid;grid-template-columns:repeat(4,1fr);gap:3px;will-change:transform}
+.hero-bg figure{position:relative;overflow:hidden}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 0%;transform-origin:50% 0;animation:kb 22s ease-in-out infinite alternate}
+.hero-bg figure:nth-child(2) img{animation-delay:-6s}.hero-bg figure:nth-child(3) img{animation-delay:-12s}.hero-bg figure:nth-child(4) img{animation-delay:-3s}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.12)}}
+.hero-shade{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(3,12,32,.78) 0%,rgba(3,12,32,.1) 24%,rgba(3,12,32,.12) 42%,rgba(3,12,32,.86) 78%,var(--ink) 100%),
+  linear-gradient(90deg,rgba(3,12,32,.7) 0%,rgba(3,12,32,.1) 55%,rgba(3,12,32,.35) 100%)}
+.hero-smoke{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen}
+.hero-smoke i{position:absolute;border-radius:50%;filter:blur(60px);animation:drift 20s ease-in-out infinite alternate}
+.hero-smoke i:nth-child(1){width:50vw;height:34vw;left:-8vw;bottom:-6vw;background:radial-gradient(closest-side,rgba(110,165,255,.38),transparent)}
+.hero-smoke i:nth-child(2){width:46vw;height:30vw;right:-6vw;top:20%;background:radial-gradient(closest-side,rgba(70,130,240,.3),transparent);animation-delay:-9s}
+.hero-content{position:relative;z-index:2;width:min(1180px,100% - 40px);margin-inline:auto;padding:130px 0 64px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:end}
+.pill{display:inline-flex;gap:10px;align-items:center;font-family:var(--cond);font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:.78rem;border:1px solid var(--line);padding:8px 16px;border-radius:99px;background:rgba(3,12,32,.45);backdrop-filter:blur(10px);margin-bottom:22px}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--lime);animation:ping 2.2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(198,255,52,0)}100%{box-shadow:0 0 0 0 rgba(198,255,52,0)}}
+.hero-logo{width:min(340px,70%);filter:drop-shadow(0 8px 28px rgba(0,0,0,.5))}
+.hero h2.big{font-family:var(--display);font-weight:400;font-size:clamp(2.8rem,7vw,5.6rem);line-height:.98;text-transform:uppercase;letter-spacing:.02em;margin:20px 0 6px;text-shadow:0 8px 40px rgba(0,0,0,.45)}
+.hero .tag{font-family:var(--body);font-style:italic;font-weight:300;font-size:clamp(1.25rem,2.4vw,1.8rem);letter-spacing:.02em;color:var(--cream);text-shadow:0 4px 24px rgba(0,0,0,.6)}
+.hero .sub{color:var(--muted);max-width:44ch;margin-top:12px;font-size:1.02rem}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.hero-side{justify-self:end;text-align:right;display:grid;gap:16px;justify-items:end}
+.motto{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end;font-family:var(--cond);font-weight:700;letter-spacing:.26em;font-size:.82rem;text-transform:uppercase;color:var(--muted)}
+.motto span:not(:last-child)::after{content:"/";margin-left:16px;color:var(--lime)}
+.count-card{display:none;padding:16px 18px;border:1px solid var(--line);border-radius:var(--r);background:rgba(3,12,32,.5);backdrop-filter:blur(14px)}
+.count-card.on{display:block}
+.count-label{font-family:var(--cond);letter-spacing:.22em;text-transform:uppercase;font-size:.74rem;color:var(--lime);margin-bottom:8px}
+.count{display:flex;gap:10px}
+.count div{min-width:60px;text-align:center}
+.count b{display:block;font-family:var(--display);font-weight:400;font-size:2rem;line-height:1}
+.count small{font-family:var(--cond);letter-spacing:.2em;font-size:.66rem;color:var(--muted);text-transform:uppercase}
+.scroll-hint{position:absolute;left:50%;bottom:18px;z-index:3;width:1px;height:38px;background:linear-gradient(var(--white),transparent);opacity:.6;animation:hint 2.4s ease-in-out infinite}
+@keyframes hint{50%{transform:translateY(8px);opacity:.2}}
+@media(max-width:900px){
+  .hero-bg{grid-template-columns:repeat(2,1fr)}.hero-bg figure:nth-child(n+3){display:none}
+  .hero-content{grid-template-columns:1fr;padding-bottom:50px}.hero-side{justify-self:start;text-align:left;justify-items:start}.motto{justify-content:flex-start}
+}
+
+/* ---------- marquee (mềm) ---------- */
+.marquee{overflow:hidden;white-space:nowrap;padding:22px 0;border-block:1px solid var(--line);background:rgba(8,58,130,.14)}
+.marquee .track{display:inline-flex;gap:56px;animation:slide 34s linear infinite;font-family:var(--display);font-size:1.7rem;letter-spacing:.08em;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px rgba(247,248,250,.5)}
+.marquee .track span{display:inline-flex;align-items:center;gap:56px}
+.marquee .track span::after{content:"✦";-webkit-text-stroke:0;color:var(--lime);font-size:1rem}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ---------- sản phẩm ---------- */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:48px}
+.card{position:relative;border-radius:28px;overflow:hidden;background:rgba(8,58,130,.22);border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .5s cubic-bezier(.2,.7,.2,1),border-color .4s,box-shadow .5s}
+.card:hover{transform:translateY(-8px);border-color:rgba(198,255,52,.45);box-shadow:0 30px 80px -30px rgba(42,107,224,.6)}
+.card .art{position:relative;aspect-ratio:4/5;overflow:hidden;background:#061a43}
+.card .art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .7s ease,transform 1.2s ease}
+.card .art .alt{opacity:0;object-position:50% 50%}
+.card:hover .art .alt{opacity:1}
+.card:hover .art .main{transform:scale(1.04)}
+.card .art::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(transparent,rgba(3,12,32,.85));pointer-events:none}
+.card .label{position:absolute;left:20px;bottom:18px;z-index:2;font-family:var(--cond);letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;color:var(--cream)}
+.badge{position:absolute;top:18px;left:18px;z-index:2;font-family:var(--cond);font-weight:700;letter-spacing:.16em;font-size:.76rem;text-transform:uppercase;background:var(--lime);color:var(--ink);padding:6px 14px;border-radius:99px}
+.card .body{padding:26px 28px 30px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{font-family:var(--display);font-weight:400;font-size:1.9rem;text-transform:uppercase;letter-spacing:.02em}
+.card .meta{color:var(--muted);font-size:.98rem;flex:1}
+.pricebox{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-top:12px}
+.price{font-family:var(--display);font-size:2.3rem;line-height:1}
+.was{font-family:var(--cond);font-size:1.25rem;color:rgba(247,248,250,.5);text-decoration:line-through;text-decoration-thickness:1.5px;letter-spacing:.04em}
+.save{font-family:var(--cond);font-weight:700;letter-spacing:.1em;text-transform:none;font-size:.9rem;color:var(--lime);border:1px solid rgba(198,255,52,.4);padding:3px 10px;border-radius:99px}
+.card .btn{margin-top:16px;align-self:flex-start}
+@media(max-width:760px){.cards{grid-template-columns:1fr}}
+
+/* ---------- lookbook: reel ngang ---------- */
+#lookbook{padding-bottom:40px;overflow:hidden}
+.reel-bg{position:absolute;left:0;right:0;top:46%;transform:translateY(-50%);text-align:center;font-family:var(--display);font-size:clamp(9rem,26vw,24rem);line-height:1;letter-spacing:.02em;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px rgba(247,248,250,.07);white-space:nowrap;pointer-events:none;user-select:none}
+.reel{--u:1;position:relative;display:flex;align-items:center;gap:26px;overflow-x:auto;scroll-snap-type:x proximity;padding:46px max(20px,calc((100vw - 1180px)/2)) 56px;scrollbar-width:none;cursor:grab;-webkit-overflow-scrolling:touch}
+.reel::-webkit-scrollbar{display:none}
+.reel.drag{cursor:grabbing;scroll-snap-type:none}
+.frame{position:relative;flex:0 0 auto;border-radius:26px;overflow:hidden;scroll-snap-align:center;background:#061a43;box-shadow:0 30px 70px -34px rgba(0,0,0,.8);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.frame:hover{transform:translateY(-8px)}
+.frame img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;pointer-events:none;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.frame:hover img{transform:scale(1.05)}
+.frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(3,12,32,.7));pointer-events:none}
+.frame figcaption{position:absolute;left:18px;bottom:14px;z-index:2;display:flex;align-items:baseline;gap:10px;font-family:var(--cond);letter-spacing:.2em;text-transform:uppercase;font-size:.74rem}
+.frame figcaption b{font-family:var(--display);font-weight:400;font-size:1.5rem;letter-spacing:.04em;color:var(--lime)}
+.frame.tall{width:calc(340px*var(--u));height:calc(500px*var(--u))}
+.frame.xl{width:calc(430px*var(--u));height:calc(570px*var(--u));margin-top:calc(-34px*var(--u))}
+.frame.mid{width:calc(300px*var(--u));height:calc(400px*var(--u));margin-top:calc(90px*var(--u))}
+.frame.flat{width:calc(620px*var(--u));height:calc(390px*var(--u));margin-top:calc(-20px*var(--u));background:radial-gradient(circle at 50% 40%,#0d3a85,#061a43);cursor:default}
+.frame.flat img{object-fit:cover;object-position:50% 50%}
+.reel-ui{display:flex;align-items:center;gap:22px}
+.reel-bar{flex:1;height:2px;background:var(--line);border-radius:2px;overflow:hidden}
+.reel-bar i{display:block;height:100%;width:10%;background:var(--lime);border-radius:2px;transition:width .15s}
+.reel-btn{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:rgba(247,248,250,.06);color:var(--white);font-size:1.3rem;cursor:pointer;backdrop-filter:blur(8px);transition:border-color .3s,background .3s}
+.reel-btn:hover{border-color:var(--lime);background:rgba(198,255,52,.1)}
+@media(max-width:820px){.reel{--u:.68;gap:16px}}
+
+/* ---------- built for performance ---------- */
+.story-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:60px;align-items:start}
+.story-stack{display:grid;gap:22px}
+.story-art{position:relative;border-radius:30px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 40px 100px -40px rgba(42,107,224,.7)}
+.story-art img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.story-art::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 60%,rgba(3,12,32,.6));pointer-events:none}
+.sub-title{font-family:var(--cond);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:clamp(1.1rem,2.2vw,1.5rem);color:var(--lime)}
+.list{list-style:none;margin-top:30px;display:grid;gap:14px}
+.list li{padding:22px 24px;border:1px solid var(--line);border-radius:var(--r);background:rgba(8,58,130,.16);backdrop-filter:blur(8px);transition:border-color .4s,background .4s}
+.list li:hover{border-color:rgba(198,255,52,.35);background:rgba(8,58,130,.26)}
+.list .k{font-family:var(--cond);font-weight:700;letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;color:var(--lime)}
+.list h4{font-family:var(--display);font-weight:400;font-size:1.45rem;text-transform:uppercase;letter-spacing:.02em;margin:4px 0}
+.list p{color:var(--muted);font-size:.97rem}
+@media(max-width:900px){.story-grid{grid-template-columns:1fr}.story-stack{max-width:480px}}
+
+/* ---------- size ---------- */
+.size-grid{display:grid;grid-template-columns:1fr;gap:26px;margin-top:34px;max-width:760px}
+.size-h{font-family:var(--cond);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.86rem;color:var(--lime);margin-bottom:10px}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:rgba(8,58,130,.14);max-width:760px}
+table{border-collapse:collapse;width:100%;min-width:420px;font-family:var(--cond);font-size:1.08rem;letter-spacing:.06em}
+th,td{padding:15px 20px;text-align:center;border-bottom:1px solid var(--line)}
+th{text-transform:uppercase;font-weight:700;color:var(--lime);letter-spacing:.16em;font-size:.82rem}
+td:first-child,th:first-child{text-align:left;font-weight:700}
+tr:last-child td{border-bottom:0}
+.note{color:var(--muted);font-size:.9rem;margin-top:14px}
+
+/* ---------- tiến độ ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.step{padding:26px;border:1px solid var(--line);border-radius:var(--r);background:rgba(8,58,130,.16)}
+.step em{font-style:normal;font-family:var(--display);font-size:1.6rem;color:var(--lime);display:block;letter-spacing:.02em}
+.step h4{font-family:var(--cond);text-transform:uppercase;letter-spacing:.16em;font-size:1.1rem;margin:6px 0}
+.step p{color:var(--muted);font-size:.95rem}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
+
+/* ---------- form ---------- */
+.form-shell{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;margin-top:44px;align-items:start}
+.side{position:sticky;top:100px;border:1px solid var(--line);border-radius:var(--r);padding:26px;background:rgba(8,58,130,.22);backdrop-filter:blur(12px)}
+.side h3,.blk-h{font-family:var(--cond);letter-spacing:.18em;text-transform:uppercase;font-size:.95rem;color:var(--lime);margin-bottom:14px;font-weight:700}
+.side .thumb{display:flex;gap:10px;margin-bottom:16px}
+.side .thumb img{width:64px;height:80px;object-fit:cover;object-position:50% 12%;border-radius:12px;border:1px solid var(--line)}
+.sum-line{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:.95rem}
+.sum-line span:first-child{color:var(--muted)}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;font-family:var(--cond);letter-spacing:.14em;text-transform:uppercase}
+.total b{font-family:var(--display);font-weight:400;font-size:2.2rem;letter-spacing:.02em;text-transform:none}
+form{display:grid;gap:22px}
+.blk{display:grid;gap:18px;border:1px solid var(--line);border-radius:var(--r);padding:26px;background:rgba(3,12,32,.5);backdrop-filter:blur(8px)}
+.blk-h span{display:inline-grid;place-items:center;width:26px;height:26px;background:var(--lime);color:var(--ink);margin-right:10px;border-radius:50%;font-family:var(--display);letter-spacing:0}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{display:block;font-family:var(--cond);letter-spacing:.16em;text-transform:uppercase;font-weight:600;font-size:.82rem;color:var(--muted);margin-bottom:7px}
+label em{font-style:normal;color:var(--lime)}
+input,select{width:100%;font:inherit;color:var(--white);background:rgba(3,12,32,.7);border:1px solid var(--line);padding:13px 16px;outline:none;transition:border-color .25s,box-shadow .25s;border-radius:14px}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--lime) 50%),linear-gradient(135deg,var(--lime) 50%,transparent 50%);background-position:calc(100% - 22px) 55%,calc(100% - 16px) 55%;background-size:6px 6px;background-repeat:no-repeat;padding-right:38px}
+select option{background:#04122e}
+input:focus,select:focus{border-color:var(--lime);box-shadow:0 0 0 4px rgba(198,255,52,.12)}
+.item{border:1px solid var(--line);border-radius:18px;padding:18px;background:rgba(8,58,130,.16);display:grid;gap:14px}
+.item .head{display:flex;justify-content:space-between;align-items:center;font-family:var(--cond);letter-spacing:.18em;text-transform:uppercase;font-size:.85rem;color:var(--lime);font-weight:700}
+.item .rm{background:none;border:0;color:var(--muted);cursor:pointer;font-family:var(--cond);letter-spacing:.14em;text-transform:uppercase;font-size:.78rem}
+.item .rm:hover{color:#ff7b7b}
+.item .row3{display:grid;grid-template-columns:1.6fr 1fr 90px;gap:12px}
+.hp{position:absolute;left:-9999px;opacity:0}
+.fine{font-size:.86rem;color:var(--muted)}
+.fine b{color:var(--white);font-weight:600}
+details.disc{margin-top:14px;padding:0;border:0;color:var(--muted);font-size:.82rem}
+.disc summary{display:inline-flex;gap:6px;justify-content:flex-start;font-family:inherit;text-transform:none;font-weight:500;font-size:.82rem;letter-spacing:.03em;opacity:.65}
+.disc summary:hover{opacity:1}
+.disc summary::after{content:none}
+.disc summary::before{content:"+";color:var(--lime)}
+.disc[open] summary::before{content:"–"}
+.disc p{margin-top:8px;font-size:.84rem;line-height:1.55;opacity:.85;max-width:60ch}
+.paid{display:flex;align-items:flex-start;gap:12px;text-transform:none;letter-spacing:.01em;font-family:var(--body,inherit);font-size:.98rem;font-weight:500;color:var(--white);cursor:pointer;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:rgba(8,58,130,.16);margin:0}
+.paid input{appearance:none;-webkit-appearance:none;flex:none;width:22px;height:22px;margin-top:1px;border:1.5px solid rgba(247,248,250,.5);border-radius:6px;background:transparent;cursor:pointer;display:grid;place-items:center;align-content:center;transition:.2s}
+.paid input:checked{background:var(--lime);border-color:var(--lime)}
+.paid input:checked::after{content:"";width:6px;height:11px;border:solid #05122b;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.paid em{color:var(--lime);font-style:normal}
+.msg{display:none;padding:16px 18px;border-radius:14px;border:1px solid rgba(198,255,52,.4);background:rgba(198,255,52,.08)}
+.msg.err{border-color:rgba(255,123,123,.5);background:rgba(255,123,123,.08)}
+.msg.on{display:block}
+.msg b{font-family:var(--cond);letter-spacing:.12em;text-transform:uppercase}
+.pay{display:grid;grid-template-columns:1fr 210px;gap:24px;align-items:start}
+.pay-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line);font-size:.97rem}
+.pay-row>span:first-child{color:var(--muted);font-family:var(--cond);letter-spacing:.14em;text-transform:uppercase;font-size:.82rem}
+.pay-row b{font-weight:600;text-align:right;word-break:break-all}
+.cp{background:none;border:1px solid var(--line);color:var(--lime);font-family:var(--cond);letter-spacing:.12em;text-transform:uppercase;font-size:.72rem;padding:4px 11px;cursor:pointer;margin-left:10px;white-space:nowrap;border-radius:99px}
+.cp:hover{border-color:var(--lime)}
+.qr{background:#fff;padding:8px;aspect-ratio:1/1.12;display:grid;place-items:center;color:#222;font-size:.8rem;text-align:center;border-radius:16px;overflow:hidden}
+.qr img{width:100%;height:100%;object-fit:contain}
+.qr-cap{font-size:.76rem;color:var(--muted);text-align:center;margin-top:8px}
+.note-wrap{display:flex;gap:10px}
+.note-wrap input{font-family:var(--cond);letter-spacing:.06em;font-size:1.1rem}
+@media(max-width:700px){.size-grid table{min-width:560px;font-size:.92rem}.size-grid th,.size-grid td{padding:12px 12px;white-space:nowrap}.size-grid td:first-child,.size-grid th:first-child{position:sticky;left:0;background:#07163a;z-index:1}}
+@media(max-width:900px){.form-shell{grid-template-columns:1fr}.side{position:static;order:-1}.item .row3{grid-template-columns:1fr 1fr}.row2{grid-template-columns:1fr}.pay{grid-template-columns:1fr}.qr{max-width:240px}}
+
+/* ---------- FAQ ---------- */
+details{border-bottom:1px solid var(--line);padding:20px 0}
+summary{cursor:pointer;list-style:none;font-family:var(--cond);letter-spacing:.1em;text-transform:uppercase;font-weight:700;font-size:1.1rem;display:flex;justify-content:space-between;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--lime);font-size:1.5rem;line-height:1;transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);margin-top:10px;max-width:70ch}
+
+/* ---------- footer ---------- */
+footer{padding:70px 0 44px;border-top:1px solid var(--line);background:linear-gradient(180deg,transparent,rgba(3,12,32,.85))}
+.foot{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end}
+.foot .sgs img{height:96px;width:auto}
+.foot .sgs p{margin-top:14px;font-family:var(--cond);letter-spacing:.24em;text-transform:uppercase;font-size:.8rem;color:var(--muted)}
+.collab{display:grid;gap:14px;justify-items:end;text-align:right}
+.collab p{font-family:var(--cond);letter-spacing:.18em;text-transform:uppercase;font-size:.85rem;color:var(--muted)}
+.collab p b{color:var(--white);font-weight:700}
+.collab img{height:54px;width:auto;opacity:.95}
+@media(max-width:720px){.foot{grid-template-columns:1fr}.collab{justify-items:start;text-align:left}}
+
+/* ---------- lightbox ---------- */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(2,8,22,.92);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:24px}
+.lb.on{display:flex}
+.lb img{max-height:92vh;max-width:min(92vw,820px);border-radius:18px;box-shadow:0 40px 120px rgba(0,0,0,.6)}
+.lb button{position:absolute;background:rgba(247,248,250,.1);border:1px solid var(--line);color:var(--white);width:48px;height:48px;border-radius:50%;font-size:1.4rem;cursor:pointer;backdrop-filter:blur(8px)}
+.lb button:hover{background:rgba(247,248,250,.2)}
+.lb .x{top:20px;right:20px}.lb .p{left:20px;top:50%}.lb .n{right:20px;top:50%}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="smoke-fixed" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand" aria-label="Saigon Grappling Society"><img data-img="logo" alt="Saigon Grappling Society"></a>
+    <div class="nav-links">
+      <a href="#genesis">Genesis</a>
+      <a href="#lookbook">Lookbook</a>
+      <a href="#size">Size</a>
+      <a href="#tien-do">Tiến độ</a>
+      <a href="#dat-hang" class="btn sm">Đặt trước</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bg" id="heroBg">
+    <figure><img data-img="m1" alt="Combo rashguard dài tay SGS Genesis" fetchpriority="high"></figure>
+    <figure><img data-img="f1" alt="Combo rashguard ngắn tay SGS Genesis" fetchpriority="high"></figure>
+    <figure><img data-img="m3" alt="Mặt lưng rashguard SGS dài tay"></figure>
+    <figure><img data-img="f3" alt="Mặt lưng rashguard SGS ngắn tay"></figure>
+  </div>
+  <div class="hero-shade"></div>
+  <div class="hero-smoke" aria-hidden="true"><i></i><i></i></div>
+
+  <div class="hero-content">
+    <div>
+      <h1 class="sr">Saigon Grappling Society — SGS Genesis</h1>
+      <span class="pill rv"><i></i> Pre-order <span id="pillDates"></span></span>
+      <img class="hero-logo rv" data-img="logo" alt="Saigon Grappling Society">
+      <h2 class="big rv">SGS Genesis</h2>
+      <p class="tag rv">Every legacy has a beginning.</p>
+      <p class="sub rv">Sự khai sinh của một cộng đồng grappling mới tại Sài Gòn.</p>
+      <div class="cta-row rv">
+        <a href="#dat-hang" class="btn">Đặt trước ngay</a>
+        <a href="#lookbook" class="btn ghost">Xem lookbook</a>
+      </div>
+    </div>
+    <div class="hero-side rv">
+      <div class="count-card" id="countCard">
+        <div class="count-label" id="countLabel">Chốt đơn sau</div>
+        <div class="count">
+          <div><b id="cd">00</b><small>Ngày</small></div>
+          <div><b id="ch">00</b><small>Giờ</small></div>
+          <div><b id="cm">00</b><small>Phút</small></div>
+          <div><b id="cs">00</b><small>Giây</small></div>
+        </div>
+      </div>
+      <div class="motto"><span>BJJ</span><span>Grappling</span><span>Community</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"></div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
+
+<section id="genesis">
+  <div class="wrap">
+    <div class="eyebrow rv">Bộ sưu tập</div>
+    <h2 class="title rv">Chọn bộ của bạn</h2>
+    <p class="lead rv">Mỗi combo gồm rashguard và Combat Shorts 1, cùng một bảng màu navy với họa tiết mây khói của SGS.</p>
+    <div class="cards" id="cards"></div>
+  </div>
+</section>
+
+<section id="lookbook" style="padding-top:40px">
+  <div class="wrap" style="position:relative">
+    <div class="eyebrow rv">Lookbook</div>
+    <h2 class="title rv">001 — The SGS Genesis</h2>
+    <p class="lead rv">Kéo ngang hoặc bấm mũi tên để lướt qua từng khung hình. Bấm vào một ảnh để xem lớn.</p>
+  </div>
+  <div class="reel" id="reel" aria-label="Lookbook SGS Genesis"></div>
+  <div class="wrap reel-ui" style="position:relative">
+    <div class="reel-bar"><i id="reelBar"></i></div>
+    <button class="reel-btn" id="reelPrev" aria-label="Trước">‹</button>
+    <button class="reel-btn" id="reelNext" aria-label="Sau">›</button>
+  </div>
+</section>
+
+<section id="thiet-ke">
+  <div class="wrap story-grid">
+    <div class="story-stack"><div class="story-art rv"><img data-img="m4" alt="Võ sĩ SGS trong tư thế scramble" loading="lazy"></div>
+    <div class="story-art rv"><img data-img="ta" alt="Võ sĩ SGS tập tạ" loading="lazy"></div></div>
+    <div>
+      <div class="eyebrow rv">Thiết kế</div>
+      <h2 class="title rv">Built for performance.</h2>
+      <div class="sub-title rv">Thiết kế cho từng hiệp đấu.</div>
+      <p class="lead rv" style="margin-top:14px">Từ drilling đến những hiệp sparring cường độ cao, SGS Rashguard được thiết kế để bạn thoải mái vận động và tập trung vào từng chuyển động trên thảm.</p>
+      <ul class="list">
+        <li class="rv"><div class="k">01 — Second-skin fit</div><h4>Ôm sát, không vướng víu.</h4><p>Thiết kế ôm sát cơ thể, hạn chế tình trạng áo bị kéo, cuộn hoặc xô lệch khi grappling.</p></li>
+        <li class="rv"><div class="k">02 — Less friction, more action</div><h4>Hạn chế ma sát.</h4><p>Lớp vải ôm sát giúp giảm ma sát trực tiếp giữa da với thảm và trang phục đối phương, hạn chế trầy xước nhẹ khi rolling.</p></li>
+        <li class="rv"><div class="k">03 — Move without limits</div><h4>Linh hoạt trong mọi chuyển động.</h4><p>Thiết kế dành cho grappling, hỗ trợ các động tác scramble, guard retention, takedown và submission mà không bị vướng như áo thun thông thường.</p></li>
+        <li class="rv"><div class="k">04 — Sweat. Roll. Repeat.</div><h4>Thoải mái qua từng hiệp roll.</h4><p>Chất liệu rashguard phù hợp giúp quản lý mồ hôi và hạn chế cảm giác áo nặng, bết dính khi tập luyện cường độ cao.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="size" style="padding-top:40px">
+  <div class="wrap">
+    <div class="eyebrow rv">Chọn size</div>
+    <h2 class="title rv">Bảng size</h2>
+    <p class="lead rv">Một size dùng chung cho cả áo và shorts, bạn chỉ cần chọn một size khi đặt. Nếu nằm giữa hai size, hãy chọn size lớn hơn.</p>
+    <div class="size-grid">
+      <div class="rv"><div class="size-h">Áo rashguard</div><div class="table-wrap" id="sizeShirt"></div></div>
+      <div class="rv"><div class="size-h">Quần Combat Shorts 1</div><div class="table-wrap" id="sizeShorts"></div></div>
+    </div>
+    <p class="note rv" id="sizeNote"></p>
+  </div>
+</section>
+
+<section id="tien-do">
+  <div class="wrap">
+    <div class="eyebrow rv">Quy trình</div>
+    <h2 class="title rv">Tiến độ pre-order</h2>
+    <div class="steps" id="steps"></div>
+  </div>
+</section>
+
+<section id="dat-hang">
+  <div class="wrap">
+    <div class="eyebrow rv">Đặt trước</div>
+    <h2 class="title rv">Điền form<br>đặt hàng</h2>
+    <p class="lead rv">Điền thông tin, chuyển khoản theo QR rồi gửi đơn. Ban tổ chức đối chiếu theo nội dung chuyển khoản.</p>
+
+    <div class="form-shell">
+      <form id="orderForm" novalidate>
+        <div class="blk">
+          <div class="blk-h"><span>1</span>Thông tin &amp; sản phẩm</div>
+          <div class="row2">
+            <div><label for="name">Họ và tên <em>*</em></label><input id="name" name="name" autocomplete="name" required></div>
+            <div><label for="phone">SĐT / Zalo <em>*</em></label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></div>
+          </div>
+          <div id="items" style="display:grid;gap:14px"></div>
+          <button type="button" class="btn ghost" id="addItem">+ Thêm sản phẩm</button>
+          <div>
+            <label for="address">Địa chỉ giao hàng (không bắt buộc)</label>
+            <input id="address" name="address" autocomplete="street-address" placeholder="Để trống nếu nhận hàng offline tại phòng tập">
+            <p class="fine" style="margin-top:8px">Nếu để trống, bạn nhận hàng offline tại phòng tập <b id="pickup"></b>. Phí vận chuyển bạn trả cho shipper.</p>
+          </div>
+        </div>
+
+        <div class="blk">
+          <div class="blk-h"><span>2</span>Thông tin thanh toán</div>
+          <div class="pay">
+            <div>
+              <div class="pay-row"><span>Ngân hàng</span><b id="bBank"></b></div>
+              <div class="pay-row"><span>Số TK</span><b><span id="bAcc"></span><button type="button" class="cp" data-copy="acc">Copy</button></b></div>
+              <div class="pay-row"><span>Chủ TK</span><b><span id="bHolder"></span><button type="button" class="cp" data-copy="holder">Copy</button></b></div>
+              <div class="pay-row"><span>Số tiền</span><b><span id="bAmount">0đ</span><button type="button" class="cp" data-copy="amount">Copy</button></b></div>
+            </div>
+            <div>
+              <div class="qr" id="qrBox"><span>Chọn sản phẩm để tạo QR</span></div>
+              <div class="qr-cap">Quét bằng app ngân hàng bất kỳ · VietQR · napas 247</div>
+            </div>
+          </div>
+          <div>
+            <label for="transfer">Nội dung chuyển khoản <em>[Tên]_SĐT</em></label>
+            <div class="note-wrap">
+              <input id="transfer" name="transfer" placeholder="Ví dụ: Hieu_0987654321" autocomplete="off">
+              <button type="button" class="btn ghost sm" data-copy="note">Copy</button>
+            </div>
+            <p class="fine" style="margin-top:8px">Tự điền theo họ tên và SĐT ở trên. Bạn có thể sửa nếu muốn. Nên giữ đúng cú pháp để dễ đối chiếu.</p>
+          </div>
+          <details class="disc">
+            <summary>Lưu ý về hình ảnh</summary>
+            <p>Ảnh có sự can thiệp của AI nên vân mây sẽ hơi khác một chút so với thực tế, nhưng 100% ra mood &amp; tone giống vậy.</p>
+          </details>
+        </div>
+
+        <label class="paid"><input type="checkbox" id="paid" name="paid"><span>Tôi đã chuyển khoản theo thông tin trên <em>*</em></span></label>
+
+        <input class="hp" type="text" name="website" id="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="btn" id="submitBtn">Gửi đơn đặt hàng</button>
+        <div class="msg" id="msgOk"><b>Đã nhận đơn.</b> <span id="okText"></span></div>
+        <div class="msg err" id="msgErr"><b>Chưa gửi được.</b> <span id="errText"></span></div>
+      </form>
+
+      <aside class="side">
+        <h3>Đơn của bạn</h3>
+        <div class="thumb" id="sideThumb"></div>
+        <div id="summary"></div>
+        <div class="total"><span>Tạm tính</span><b id="total">0đ</b></div>
+        <p class="fine" style="margin-top:14px">Chưa gồm phí vận chuyển nếu giao tận nơi.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:20px">
+  <div class="wrap" style="max-width:860px">
+    <div class="eyebrow rv">Hỏi nhanh</div>
+    <h2 class="title rv">FAQ</h2>
+    <div class="rv" id="faqList"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div class="sgs">
+      <img data-img="logo" alt="Saigon Grappling Society">
+      <p>BJJ · Grappling · Community</p>
+    </div>
+    <div class="collab">
+      <p>Hợp tác và sản xuất bởi <b>Focus Fightwear</b></p>
+      <img data-img="focus" alt="Focus Fightwear">
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Xem ảnh">
+  <button class="x" aria-label="Đóng">×</button><button class="p" aria-label="Ảnh trước">‹</button>
+  <img id="lbImg" alt=""><button class="n" aria-label="Ảnh sau">›</button>
+</div>
+
+<script>
+/* ============ ẢNH — đổi tên file ở đây, mọi chỗ trên trang tự cập nhật ============ */
+const IMG = {
+  dir: "",                      // thư mục chứa ảnh ("" nếu để cùng chỗ với index.html)
+  logo: "logo-white.png",              // logo SAIGON GRAPPLING SOCIETY (trắng, nền trong)
+  monogram: "monogram-white.png",      // favicon
+  focus: "focus-mark.png",             // logo Focus Fightwear (trắng, nền trong)
+  m1: "m1.jpg", m2: "m2.jpg", m3: "m3.jpg", m4: "m4.jpg", m5: "m5.jpg",   // người mẫu nam (áo dài tay)
+  f1: "f1.jpg", f2: "f2.jpg", f3: "f3.jpg", f4: "f4.jpg", f5: "f5.jpg",   // người mẫu nữ (áo ngắn tay)
+  mockupLong: "mockup-long.jpg",       // mockup phẳng dài tay
+  mockupShort: "mockup-short.jpg",     // mockup phẳng ngắn tay
+  long: "long.jpg",                   // ảnh combo dài tay (thẻ sản phẩm)
+  short: "short.jpg",                 // ảnh combo ngắn tay (thẻ sản phẩm)
+  ta: "ta.jpg",                       // ảnh tập tạ (mục Built for performance)
+  lookLong: "look-long.jpg",         // lookbook khung 04
+  lookShort: "look-short.jpg",       // lookbook khung 08
+  cardLong: "card-long.jpg",           // ảnh phẳng hiện khi rê chuột vào thẻ combo dài tay
+  cardShort: "card-short.jpg"          // ảnh phẳng hiện khi rê chuột vào thẻ combo ngắn tay
+};
+const img = k => IMG.dir + IMG[k];
+document.querySelectorAll("[data-img]").forEach(el => { el.src = img(el.dataset.img); });
+document.getElementById("favicon").href = img("monogram");
+
+/* ============ CẤU HÌNH — chỉnh ở đây ============ */
+const CONFIG = {
+  // Dán URL Web App của Google Apps Script (xem apps-script.gs). Để trống = chưa nhận đơn được.
+  SCRIPT_URL: "",
+  // Hết hạn pre-order (ISO, múi giờ +07). Sau mốc này form tự đóng. Để trống = không giới hạn.
+  DEADLINE: "2026-10-20T23:59:00+07:00",
+  PILL_DATES: "17/10 – 20/10",
+  STEPS: [
+    {date:"17/10 – 20/10", title:"Pre-order", desc:"Điền form và chuyển khoản để giữ chỗ."},
+    {date:"20/10 – 30/10", title:"Sản xuất", desc:"Dự kiến sản xuất sau khi chốt đơn."},
+    {date:"31/10 – 06/11", title:"Giao hàng", desc:"Bắt đầu giao hàng. Nhận tại phòng tập hoặc ship tận nơi."}
+  ],
+  PICKUP: "36 A4, Phường Bảy Hiền, HCM",
+  BANK: {name:"VPBank", code:"VPB", account:"0987830414", holder:"PHAN TRUNG HIẾU"},
+  // price = giá bán thật (VNĐ), was = giá gạch
+  PRICES: { comboLong:{price:700000, was:750000}, comboShort:{price:700000, was:750000} },
+  // Một size dùng chung cho cả áo và shorts
+  SIZES: ["XS","S","M","L","XL","2XL"],
+  SIZE_DATA: {
+    cols: ["XS","S","M","L","XL","2XL"],
+    shirt: [
+      ["1/2 ngực (A)",   [44,45,46,47,48,49]],
+      ["Dài áo (B)",     [59.7,61.1,62.4,63.8,65.1,66.5]],
+      ["Dài tay (C)",    [32.7,33.7,34.7,35.7,36.7,37.7]],
+      ["Cân nặng (kg)",  ["45–50","50–60","60–70","70–80","80–88","88–95"]]
+    ],
+    shorts: [
+      ["1/2 eo (C)",     [37,39,41,43,45,47]],
+      ["Dài quần (A)",   [37,38.5,40,41.5,43,44.5]],
+      ["Cân nặng (kg)",  ["45–50","50–60","60–70","70–80","80–88","88–98"]]
+    ]
+  },
+  WEIGHT: {"XS":"45–50","S":"50–60","M":"60–70","L":"70–80","XL":"80–88","2XL":"88–95"},
+  SIZE_NOTE: "Kích thước chỉ mang tính tham khảo, có thể sai số khoảng 3% do đặc tính co giãn của vải. Đơn vị: cm."
+};
+
+const PRODUCTS = {
+  comboLong:  {name:"Combo Dài tay + Shorts",  photo:img("long"), flat:img("m1"),  hot:true, label:"Long sleeve + Combat Shorts 1",
+               desc:"Rashguard dài tay + Combat Shorts 1. Đủ bộ cho những hiệp roll dài."},
+  comboShort: {name:"Combo Ngắn tay + Shorts", photo:img("short"), flat:img("f1"), label:"Short sleeve + Combat Shorts 1",
+               desc:"Rashguard ngắn tay + Combat Shorts 1. Thoáng hơn khi tập trưa nắng Sài Gòn."}
+};
+const LOOK = [
+  {k:"m5", cap:"Long sleeve",  cls:"xl"},
+  {k:"f2", cap:"Short sleeve", cls:"mid"},
+  {k:"m4", cap:"Scramble",     cls:"tall"},
+  {k:"lookLong",  cap:"Long sleeve · Combat Shorts 1",  cls:"flat", flat:true},
+  {k:"f5", cap:"Short sleeve", cls:"xl"},
+  {k:"m3", cap:"Back print",   cls:"mid"},
+  {k:"f4", cap:"Stance",       cls:"tall"},
+  {k:"lookShort", cap:"Short sleeve · Combat Shorts 1", cls:"flat", flat:true},
+  {k:"f3", cap:"Back print",   cls:"mid"},
+  {k:"m2", cap:"Long sleeve",  cls:"tall"}
+];
+
+const fmt = n => new Intl.NumberFormat("vi-VN").format(n) + "đ";
+const $ = s => document.querySelector(s);
+const noAccent = s => s.normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/đ/g,"d").replace(/Đ/g,"D");
+const keys = Object.keys(PRODUCTS);
+const priceOf = k => CONFIG.PRICES[k].price;
+
+/* ============ RENDER TĨNH ============ */
+$("#pillDates").textContent = CONFIG.PILL_DATES;
+$("#pickup").textContent = CONFIG.PICKUP;
+$("#bBank").textContent = CONFIG.BANK.name;
+$("#bAcc").textContent = CONFIG.BANK.account;
+$("#bHolder").textContent = CONFIG.BANK.holder;
+
+const words = ["BJJ","Grappling","Community","SGS Genesis","Every legacy has a beginning"];
+const row = words.map(w=>`<span>${w}</span>`).join("");
+$("#track").innerHTML = row+row+row+row;
+
+$("#cards").innerHTML = keys.map(k=>{
+  const p=PRODUCTS[k], c=CONFIG.PRICES[k], save=c.was-c.price;
+  return `<article class="card rv">
+    <div class="art">
+      ${p.hot?'<span class="badge">Best seller dự kiến</span>':""}
+      <img class="main" src="${p.photo}" alt="${p.name}" loading="lazy">
+      <img class="alt" src="${p.flat}" alt="${p.name} - ảnh mockup" loading="lazy">
+      <span class="label">${p.label}</span>
+    </div>
+    <div class="body">
+      <h3>${p.name}</h3><p class="meta">${p.desc}</p>
+      <div class="pricebox"><span class="price">${fmt(c.price)}</span><span class="was">${fmt(c.was)}</span>${save>0?`<span class="save">Giảm ${fmt(save)}</span>`:""}</div>
+      <a class="btn" href="#dat-hang" data-pick="${k}">Chọn mua</a>
+    </div></article>`;
+}).join("");
+
+$("#reel").innerHTML = LOOK.map((t,i)=>`<figure class="frame ${t.cls}" ${t.flat?"":`data-lb="${i}"`}>
+  <img src="${img(t.k)}" alt="${t.cap} — SGS Genesis" loading="lazy" draggable="false">
+  <figcaption><b>${String(i+1).padStart(2,"0")}</b>${t.cap}</figcaption></figure>`).join("");
+
+const SD=CONFIG.SIZE_DATA;
+const sizeTbl=rows=>`<table><thead><tr><th>Size</th>${SD.cols.map(c=>`<th>${c}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr><td>${r[0]}</td>${r[1].map(v=>`<td>${v}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+$("#sizeShirt").innerHTML=sizeTbl(SD.shirt);
+$("#sizeShorts").innerHTML=sizeTbl(SD.shorts);
+$("#sizeNote").textContent=CONFIG.SIZE_NOTE;
+
+$("#steps").innerHTML=CONFIG.STEPS.map(s=>`<div class="step rv"><em>${s.date}</em><h4>${s.title}</h4><p>${s.desc}</p></div>`).join("");
+
+const faqs=[
+  ["Thanh toán như thế nào?","Chuyển khoản theo thông tin và QR ở bước 2 của form, nhập nội dung theo cú pháp [Tên]_SĐT, rồi gửi đơn. Ban tổ chức đối chiếu theo nội dung này."],
+  ["Nhận hàng ở đâu?","Nhận trực tiếp tại phòng tập "+CONFIG.PICKUP+", hoặc nhập địa chỉ để giao tận nơi. Phí vận chuyển bạn trả cho shipper."],
+  ["Chọn size thế nào?","Mỗi bộ chọn một size dùng chung cho cả áo và shorts. Xem bảng size theo chiều cao và cân nặng, nếu nằm giữa hai size thì chọn size lớn hơn."],
+  ["Mình có thể đặt chung với bạn tập không?","Được. Bấm Thêm sản phẩm trong form để đặt nhiều bộ trong một đơn, mỗi bộ chọn size riêng."],
+  ["Khi nào nhận được hàng?","Dự kiến bắt đầu giao từ 31/10 đến 06/11, sau khi đóng pre-order ngày 20/10 và sản xuất từ 20/10 đến 30/10."]
+];
+$("#faqList").innerHTML=faqs.map(f=>`<details><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join("");
+
+/* ============ FORM ============ */
+let items=[]; const newItem=prod=>({prod:prod||keys[0],size:"",qty:1});
+const lineTotal=it=>priceOf(it.prod)*it.qty;
+const grand=()=>items.reduce((a,b)=>a+lineTotal(b),0);
+
+function renderItems(){
+  $("#items").innerHTML=items.map((it,i)=>`<div class="item" data-i="${i}">
+    <div class="head"><span>Sản phẩm ${i+1}</span>${items.length>1?`<button type="button" class="rm" data-rm="${i}">Xóa</button>`:""}</div>
+    <div class="row3">
+      <div><label>Loại</label><select data-f="prod">${keys.map(k=>`<option value="${k}" ${k===it.prod?"selected":""}>${PRODUCTS[k].name}</option>`).join("")}</select></div>
+      <div><label>Size <em>*</em></label><select data-f="size"><option value="">Chọn</option>${CONFIG.SIZES.map(s=>`<option value="${s}" ${s===it.size?"selected":""}>${s}</option>`).join("")}</select>${it.size?`<div class="fine" style="margin-top:6px">Gợi ý: ${CONFIG.WEIGHT[it.size]}kg</div>`:""}</div>
+      <div><label>SL</label><input type="number" min="1" max="20" value="${it.qty}" data-f="qty"></div>
+    </div></div>`).join("");
+  refresh();
+}
+function refresh(){
+  $("#summary").innerHTML=items.map(it=>`<div class="sum-line"><span>${PRODUCTS[it.prod].name}<br><small>Size ${it.size||"?"} × ${it.qty}</small></span><span>${fmt(lineTotal(it))}</span></div>`).join("");
+  $("#sideThumb").innerHTML=[...new Set(items.map(i=>i.prod))].map(k=>`<img src="${PRODUCTS[k].photo}" alt="${PRODUCTS[k].name}">`).join("");
+  const t=grand();
+  $("#total").textContent=fmt(t); $("#bAmount").textContent=fmt(t);
+  renderQR();
+}
+
+/* Nội dung chuyển khoản tự điền [Tên]_SĐT, cho phép sửa tay */
+let noteTouched=false;
+function autoNote(){
+  if(noteTouched) return;
+  const n=noAccent($("#name").value.trim()).replace(/\s+/g," ");
+  const p=$("#phone").value.replace(/\D/g,"");
+  $("#transfer").value = (n||p) ? `${n}_${p}`.replace(/_$/,"") : "";
+  renderQR();
+}
+$("#transfer").addEventListener("input",()=>{noteTouched=$("#transfer").value.trim()!=="";renderQR();});
+$("#name").addEventListener("input",autoNote);
+$("#phone").addEventListener("input",autoNote);
+
+let qrKey="";
+function renderQR(){
+  const amount=grand(), note=noAccent($("#transfer").value.trim()).slice(0,50);
+  const key=amount+"|"+note; if(key===qrKey) return; qrKey=key;
+  if(!amount){ $("#qrBox").innerHTML="<span>Chọn sản phẩm để tạo QR</span>"; return; }
+  const b=CONFIG.BANK;
+  const url=`https://img.vietqr.io/image/${b.code}-${b.account}-compact2.png?amount=${amount}&addInfo=${encodeURIComponent(note)}&accountName=${encodeURIComponent(noAccent(b.holder))}`;
+  $("#qrBox").innerHTML=`<img alt="QR chuyển khoản ${b.name}" src="${url}">`;
+  $("#qrBox img").addEventListener("error",()=>{$("#qrBox").innerHTML="<span>Không tải được QR. Vui lòng chuyển khoản theo thông tin bên trái.</span>";});
+}
+
+document.addEventListener("click",async e=>{
+  const c=e.target.closest("[data-copy]");
+  if(c){
+    const map={acc:CONFIG.BANK.account,holder:CONFIG.BANK.holder,amount:String(grand()),note:$("#transfer").value};
+    const txt=map[c.dataset.copy]||""; if(!txt) return;
+    try{await navigator.clipboard.writeText(txt);}catch(_){const t=document.createElement("textarea");t.value=txt;document.body.appendChild(t);t.select();document.execCommand("copy");t.remove();}
+    const old=c.textContent; c.textContent="Đã copy"; setTimeout(()=>c.textContent=old,1200); return;
+  }
+  const a=e.target.closest("[data-pick]");
+  if(a){ items[0]=newItem(a.dataset.pick); renderItems(); }
+});
+
+items=[newItem()]; renderItems();
+$("#items").addEventListener("change",e=>{
+  const el=e.target,box=el.closest(".item"); if(!box||!el.dataset.f) return;
+  const it=items[+box.dataset.i],f=el.dataset.f;
+  it[f]= f==="qty" ? Math.max(1,Math.min(20,parseInt(el.value)||1)) : el.value;
+  if(f==="prod") renderItems(); else refresh();
+});
+$("#items").addEventListener("input",e=>{ if(e.target.dataset.f==="qty"){ const box=e.target.closest(".item"); items[+box.dataset.i].qty=Math.max(1,Math.min(20,parseInt(e.target.value)||1)); refresh(); }});
+$("#items").addEventListener("click",e=>{ const b=e.target.closest("[data-rm]"); if(b){ items.splice(+b.dataset.rm,1); renderItems(); }});
+$("#addItem").addEventListener("click",()=>{ if(items.length<8){ items.push(newItem()); renderItems(); }});
+
+function showMsg(ok,text){
+  $("#msgOk").classList.toggle("on",ok); $("#msgErr").classList.toggle("on",!ok);
+  (ok?$("#okText"):$("#errText")).textContent=text;
+  (ok?$("#msgOk"):$("#msgErr")).scrollIntoView({behavior:"smooth",block:"center"});
+}
+const closed=()=>CONFIG.DEADLINE && Date.now()>new Date(CONFIG.DEADLINE).getTime();
+
+$("#orderForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  $("#msgOk").classList.remove("on"); $("#msgErr").classList.remove("on");
+  if($("#website").value) return;
+  if(closed()) return showMsg(false,"Pre-order đã đóng.");
+  const name=$("#name").value.trim(), phone=$("#phone").value.trim();
+  if(!name||!phone) return showMsg(false,"Vui lòng điền họ tên và SĐT / Zalo.");
+  if(!/^[0-9+\s().-]{8,16}$/.test(phone)) return showMsg(false,"SĐT chưa đúng định dạng.");
+  for(const [i,it] of items.entries()) if(!it.size) return showMsg(false,`Sản phẩm ${i+1}: vui lòng chọn size.`);
+  const transfer=$("#transfer").value.trim();
+  if(!transfer) return showMsg(false,"Vui lòng nhập nội dung chuyển khoản theo cú pháp [Tên]_SĐT.");
+  if(!$("#paid").checked) return showMsg(false,"Vui lòng tick xác nhận “Tôi đã chuyển khoản” trước khi gửi đơn.");
+  if(!CONFIG.SCRIPT_URL) return showMsg(false,"Trang chưa được kết nối với Google Sheet (thiếu SCRIPT_URL). Vui lòng liên hệ ban tổ chức.");
+
+  const code="SGS-RG-"+Date.now().toString(36).toUpperCase().slice(-6);
+  const detail=items.map(it=>`${PRODUCTS[it.prod].name} | Size ${it.size} | x${it.qty}`).join("\n");
+  const payload={code,name,phone,address:$("#address").value.trim(),detail,total:grand(),transfer,paid:"Đã chuyển khoản",items};
+  const btn=$("#submitBtn"); btn.disabled=true; btn.textContent="Đang gửi...";
+  try{
+    await fetch(CONFIG.SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});
+    showMsg(true,`Mã đơn: ${code}. Ban tổ chức sẽ đối soát khoản chuyển khoản với nội dung "${transfer}" và liên hệ qua số ${phone}.`);
+    $("#orderForm").reset(); noteTouched=false; items=[newItem()]; qrKey=""; renderItems();
+  }catch(err){
+    showMsg(false,"Lỗi kết nối. Vui lòng thử lại hoặc liên hệ ban tổ chức.");
+  }finally{ btn.disabled=closed(); btn.textContent="Gửi đơn đặt hàng"; }
+});
+
+/* ============ COUNTDOWN + ĐÓNG FORM ============ */
+if(CONFIG.DEADLINE){
+  const end=new Date(CONFIG.DEADLINE).getTime();
+  if(!isNaN(end)){
+    $("#countCard").classList.add("on");
+    const pad=n=>String(n).padStart(2,"0");
+    const tick=()=>{
+      const d=Math.max(0,end-Date.now())/1000;
+      $("#cd").textContent=pad(Math.floor(d/86400)); $("#ch").textContent=pad(Math.floor(d%86400/3600));
+      $("#cm").textContent=pad(Math.floor(d%3600/60)); $("#cs").textContent=pad(Math.floor(d%60));
+      if(d<=0){ $("#countLabel").textContent="Pre-order đã đóng"; $("#submitBtn").disabled=true; $("#submitBtn").textContent="Pre-order đã đóng"; }
+    };
+    tick(); setInterval(tick,1000);
+  }
+}
+
+/* ============ LIGHTBOX ============ */
+const lbIdx=LOOK.map((t,i)=>t.flat?null:i).filter(i=>i!==null);
+let lbPos=0;
+function lbShow(p){ lbPos=(p+lbIdx.length)%lbIdx.length; $("#lbImg").src=img(LOOK[lbIdx[lbPos]].k); }
+$("#reel").addEventListener("click",e=>{
+  if(reelMoved) return;
+  const t=e.target.closest("[data-lb]"); if(!t) return;
+  lbShow(lbIdx.indexOf(+t.dataset.lb)); $("#lb").classList.add("on");
+});
+$("#lb").addEventListener("click",e=>{
+  if(e.target.closest(".p")) return lbShow(lbPos-1);
+  if(e.target.closest(".n")) return lbShow(lbPos+1);
+  if(e.target.id!=="lbImg") $("#lb").classList.remove("on");
+});
+addEventListener("keydown",e=>{
+  if(!$("#lb").classList.contains("on")) return;
+  if(e.key==="Escape") $("#lb").classList.remove("on");
+  if(e.key==="ArrowLeft") lbShow(lbPos-1);
+  if(e.key==="ArrowRight") lbShow(lbPos+1);
+});
+
+
+/* ============ REEL: kéo ngang, mũi tên, thanh tiến độ ============ */
+const reel=$("#reel"), reelBar=$("#reelBar");
+let reelMoved=false, rDown=false, rStartX=0, rStartL=0;
+const reelProgress=()=>{ const max=reel.scrollWidth-reel.clientWidth; const view=reel.clientWidth/reel.scrollWidth;
+  reelBar.style.width=(view*100)+"%"; reelBar.style.marginLeft=((max>0?reel.scrollLeft/max:0)*(1-view)*100)+"%"; };
+reel.addEventListener("scroll",reelProgress,{passive:true}); addEventListener("resize",reelProgress);
+reel.addEventListener("pointerdown",e=>{ if(e.pointerType==="touch") return; rDown=true; reelMoved=false; rStartX=e.clientX; rStartL=reel.scrollLeft; });
+addEventListener("pointermove",e=>{ if(!rDown) return; const dx=e.clientX-rStartX; if(Math.abs(dx)>6){ reelMoved=true; reel.classList.add("drag"); } if(reelMoved) reel.scrollLeft=rStartL-dx; });
+addEventListener("pointerup",()=>{ if(!rDown) return; rDown=false; reel.classList.remove("drag"); setTimeout(()=>reelMoved=false,0); });
+const step=()=>Math.max(320,reel.clientWidth*.6);
+$("#reelPrev").addEventListener("click",()=>reel.scrollBy({left:-step(),behavior:"smooth"}));
+$("#reelNext").addEventListener("click",()=>reel.scrollBy({left:step(),behavior:"smooth"}));
+requestAnimationFrame(reelProgress);
+
+/* ============ NAV, PARALLAX, REVEAL ============ */
+const nav=$("#nav"), heroBg=$("#heroBg"), hero=$("#top");
+const onScroll=()=>{
+  nav.classList.toggle("scrolled",scrollY>30);
+  if(scrollY<hero.offsetHeight) heroBg.style.transform=`translate3d(0,${scrollY*.14}px,0)`;
+};
+onScroll(); addEventListener("scroll",onScroll,{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(x=>{ if(x.isIntersecting){ x.target.classList.add("in"); io.unobserve(x.target);} }),{threshold:.12});
+document.querySelectorAll(".rv").forEach((el,i)=>{ el.style.transitionDelay=(i%4)*80+"ms"; io.observe(el); });
+</script>
+</body>
+</html>
