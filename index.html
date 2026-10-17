@@ -183,7 +183,10 @@ nav.scrolled{background:rgba(3,12,32,.72);backdrop-filter:blur(18px);border-colo
 @media(max-width:900px){.story-grid{grid-template-columns:1fr}.story-stack{max-width:480px}}
 
 /* ---------- size ---------- */
-.size-grid{display:grid;grid-template-columns:1fr;gap:26px;margin-top:34px;max-width:760px}
+.size-grid{display:grid;grid-template-columns:1fr;gap:34px;margin-top:34px;max-width:1080px}
+.size-row{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:24px;align-items:start}
+.size-img{width:100%;display:block;border-radius:var(--r);border:1px solid var(--line);background:#061a43}
+@media(max-width:760px){.size-row{grid-template-columns:1fr}.size-img{max-width:340px}}
 .size-h{font-family:var(--cond);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.86rem;color:var(--lime);margin-bottom:10px}
 .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:rgba(8,58,130,.14);max-width:760px}
 table{border-collapse:collapse;width:100%;min-width:420px;font-family:var(--cond);font-size:1.08rem;letter-spacing:.06em}
@@ -401,8 +404,8 @@ footer{padding:70px 0 44px;border-top:1px solid var(--line);background:linear-gr
     <h2 class="title rv">Bảng size</h2>
     <p class="lead rv">Một size dùng chung cho cả áo và shorts, bạn chỉ cần chọn một size khi đặt. Nếu nằm giữa hai size, hãy chọn size lớn hơn.</p>
     <div class="size-grid">
-      <div class="rv"><div class="size-h">Áo rashguard</div><div class="table-wrap" id="sizeShirt"></div></div>
-      <div class="rv"><div class="size-h">Quần Combat Shorts 1</div><div class="table-wrap" id="sizeShorts"></div></div>
+      <div class="rv"><div class="size-h">Áo rashguard</div><div class="size-row"><div class="table-wrap" id="sizeShirt"></div><img class="size-img" id="sizeImgShirt" alt="Áo rashguard SGS Genesis dài tay và ngắn tay" loading="lazy" onerror="this.remove()"></div></div>
+      <div class="rv"><div class="size-h">Quần Combat Shorts 1</div><div class="size-row"><div class="table-wrap" id="sizeShorts"></div><img class="size-img" id="sizeImgShorts" alt="Quần Combat Shorts 1 SGS Genesis" loading="lazy" onerror="this.remove()"></div></div>
     </div>
     <p class="note rv" id="sizeNote"></p>
   </div>
@@ -525,6 +528,8 @@ const IMG = {
   mockupShort: "mockup-short.jpg",     // mockup phẳng ngắn tay
   long: "long.jpg",                   // ảnh combo dài tay (thẻ sản phẩm)
   short: "short.jpg",                 // ảnh combo ngắn tay (thẻ sản phẩm)
+  sizeShirts: "size-shirts.jpg",       // ảnh áo cạnh bảng size
+  sizeShorts: "size-shorts.jpg",       // ảnh quần cạnh bảng size
   ta: "ta.jpg",                       // ảnh tập tạ (mục Built for performance)
   lookLong: "look-long.jpg",         // lookbook khung 04
   lookShort: "look-short.jpg",       // lookbook khung 08
@@ -636,6 +641,8 @@ const SD=CONFIG.SIZE_DATA;
 const sizeTbl=rows=>`<table><thead><tr><th>Size</th>${SD.cols.map(c=>`<th>${c}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr><td>${r[0]}</td>${r[1].map(v=>`<td>${v}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
 $("#sizeShirt").innerHTML=sizeTbl(SD.shirt);
 $("#sizeShorts").innerHTML=sizeTbl(SD.shorts);
+$("#sizeImgShirt").src=img("sizeShirts");
+$("#sizeImgShorts").src=img("sizeShorts");
 $("#sizeNote").textContent=CONFIG.SIZE_NOTE;
 
 $("#steps").innerHTML=CONFIG.STEPS.map(s=>`<div class="step rv"><em>${s.date}</em><h4>${s.title}</h4><p>${s.desc}</p></div>`).join("");
