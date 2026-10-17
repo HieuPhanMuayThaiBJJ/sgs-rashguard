@@ -138,7 +138,9 @@ nav.scrolled{background:rgba(3,12,32,.72);backdrop-filter:blur(18px);border-colo
 .was{font-family:var(--cond);font-size:1.25rem;color:rgba(247,248,250,.5);text-decoration:line-through;text-decoration-thickness:1.5px;letter-spacing:.04em}
 .save{font-family:var(--cond);font-weight:700;letter-spacing:.1em;text-transform:none;font-size:.9rem;color:var(--lime);border:1px solid rgba(198,255,52,.4);padding:3px 10px;border-radius:99px}
 .card .btn{margin-top:16px;align-self:flex-start}
-@media(max-width:760px){.cards{grid-template-columns:1fr}}
+.cards.solo-grid{grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}.card.solo h3{font-size:1.4rem}.card.solo .price{font-size:1.8rem}.card.solo .body{padding:20px 22px 24px}
+@media(max-width:900px){.cards.solo-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.cards,.cards.solo-grid{grid-template-columns:1fr}}
 
 /* ---------- lookbook: reel ngang ---------- */
 #lookbook{padding-bottom:40px;overflow:hidden}
@@ -352,8 +354,11 @@ footer{padding:70px 0 44px;border-top:1px solid var(--line);background:linear-gr
   <div class="wrap">
     <div class="eyebrow rv">Bộ sưu tập</div>
     <h2 class="title rv">Chọn bộ của bạn</h2>
-    <p class="lead rv">Mỗi combo gồm rashguard và Combat Shorts 1, cùng một bảng màu navy với họa tiết mây khói của SGS.</p>
+    <p class="lead rv">Mỗi combo gồm rashguard và Combat Shorts 1, cùng một bảng màu navy với họa tiết mây khói của SGS. Muốn mua lẻ thì chọn áo hoặc quần riêng ở bên dưới.</p>
     <div class="cards" id="cards"></div>
+    <div class="eyebrow rv" style="margin-top:56px">Mua lẻ</div>
+    <p class="lead rv" style="margin-top:8px">Không cần cả bộ? Chọn áo hoặc quần riêng.</p>
+    <div class="cards solo-grid" id="cardsSolo"></div>
   </div>
 </section>
 
@@ -545,7 +550,7 @@ const CONFIG = {
   PICKUP: "36 A4, Phường Bảy Hiền, HCM",
   BANK: {name:"VPBank", code:"VPB", account:"0987830414", holder:"PHAN TRUNG HIẾU"},
   // price = giá bán thật (VNĐ), was = giá gạch
-  PRICES: { comboLong:{price:700000, was:750000}, comboShort:{price:700000, was:750000} },
+  PRICES: { comboLong:{price:700000, was:750000}, comboShort:{price:700000, was:750000}, shirtLong:{price:370000, was:0}, shirtShort:{price:370000, was:0}, shorts:{price:330000, was:0} },
   // Một size dùng chung cho cả áo và shorts
   SIZES: ["XS","S","M","L","XL","2XL"],
   SIZE_DATA: {
@@ -570,7 +575,10 @@ const PRODUCTS = {
   comboLong:  {name:"Combo Dài tay + Shorts",  photo:img("long"), flat:img("m1"),  hot:true, label:"Long sleeve + Combat Shorts 1",
                desc:"Rashguard dài tay + Combat Shorts 1. Đủ bộ cho những hiệp roll dài."},
   comboShort: {name:"Combo Ngắn tay + Shorts", photo:img("short"), flat:img("f1"), label:"Short sleeve + Combat Shorts 1",
-               desc:"Rashguard ngắn tay + Combat Shorts 1. Thoáng hơn khi tập trưa nắng Sài Gòn."}
+               desc:"Rashguard ngắn tay + Combat Shorts 1. Thoáng hơn khi tập trưa nắng Sài Gòn."},
+  shirtLong:  {name:"Áo Rashguard Dài tay", solo:true, photo:img("m5"), flat:img("m2"), label:"Long sleeve · mua lẻ", desc:"Chỉ lấy áo rashguard dài tay."},
+  shirtShort: {name:"Áo Rashguard Ngắn tay", solo:true, photo:img("f5"), flat:img("f2"), label:"Short sleeve · mua lẻ", desc:"Chỉ lấy áo rashguard ngắn tay."},
+  shorts:     {name:"Quần Combat Shorts 1", solo:true, photo:img("m4"), flat:img("f4"), pos:"50% 78%", label:"Combat Shorts 1 · mua lẻ", desc:"Chỉ lấy quần Combat Shorts 1."}
 };
 const LOOK = [
   {k:"m5", cap:"Long sleeve",  cls:"xl"},
@@ -602,21 +610,23 @@ const words = ["BJJ","Grappling","Community","SGS Genesis","Every legacy has a b
 const row = words.map(w=>`<span>${w}</span>`).join("");
 $("#track").innerHTML = row+row+row+row;
 
-$("#cards").innerHTML = keys.map(k=>{
+const cardHTML = k=>{
   const p=PRODUCTS[k], c=CONFIG.PRICES[k], save=c.was-c.price;
-  return `<article class="card rv">
+  return `<article class="card rv${p.solo?" solo":""}">
     <div class="art">
       ${p.hot?'<span class="badge">Best seller dự kiến</span>':""}
-      <img class="main" src="${p.photo}" alt="${p.name}" loading="lazy">
+      <img class="main" src="${p.photo}"${p.pos?` style="object-position:${p.pos}"`:""} alt="${p.name}" loading="lazy">
       <img class="alt" src="${p.flat}" alt="${p.name} - ảnh mockup" loading="lazy">
       <span class="label">${p.label}</span>
     </div>
     <div class="body">
       <h3>${p.name}</h3><p class="meta">${p.desc}</p>
-      <div class="pricebox"><span class="price">${fmt(c.price)}</span><span class="was">${fmt(c.was)}</span>${save>0?`<span class="save">Giảm ${fmt(save)}</span>`:""}</div>
+      <div class="pricebox"><span class="price">${fmt(c.price)}</span>${c.was>c.price?`<span class="was">${fmt(c.was)}</span>`:""}${save>0?`<span class="save">Giảm ${fmt(save)}</span>`:""}</div>
       <a class="btn" href="#dat-hang" data-pick="${k}">Chọn mua</a>
     </div></article>`;
-}).join("");
+};
+$("#cards").innerHTML = keys.filter(k=>!PRODUCTS[k].solo).map(cardHTML).join("");
+$("#cardsSolo").innerHTML = keys.filter(k=>PRODUCTS[k].solo).map(cardHTML).join("");
 
 $("#reel").innerHTML = LOOK.map((t,i)=>`<figure class="frame ${t.cls}" ${t.flat?"":`data-lb="${i}"`}>
   <img src="${img(t.k)}" alt="${t.cap} — SGS Genesis" loading="lazy" draggable="false">
@@ -633,7 +643,7 @@ $("#steps").innerHTML=CONFIG.STEPS.map(s=>`<div class="step rv"><em>${s.date}</e
 const faqs=[
   ["Thanh toán như thế nào?","Chuyển khoản theo thông tin và QR ở bước 2 của form, nhập nội dung theo cú pháp [Tên]_SĐT, rồi gửi đơn. Ban tổ chức đối chiếu theo nội dung này."],
   ["Nhận hàng ở đâu?","Nhận trực tiếp tại phòng tập "+CONFIG.PICKUP+", hoặc nhập địa chỉ để giao tận nơi. Phí vận chuyển bạn trả cho shipper."],
-  ["Chọn size thế nào?","Mỗi bộ chọn một size dùng chung cho cả áo và shorts. Xem bảng size theo chiều cao và cân nặng, nếu nằm giữa hai size thì chọn size lớn hơn."],
+  ["Chọn size thế nào?","Mỗi sản phẩm chọn một size, combo dùng chung một size cho cả áo và shorts. Xem bảng size theo chiều cao và cân nặng, nếu nằm giữa hai size thì chọn size lớn hơn."],
   ["Mình có thể đặt chung với bạn tập không?","Được. Bấm Thêm sản phẩm trong form để đặt nhiều bộ trong một đơn, mỗi bộ chọn size riêng."],
   ["Khi nào nhận được hàng?","Dự kiến bắt đầu giao từ 31/10 đến 06/11, sau khi đóng pre-order ngày 20/10 và sản xuất từ 20/10 đến 30/10."]
 ];
