@@ -545,12 +545,12 @@ const CONFIG = {
   // Dán URL Web App của Google Apps Script (xem apps-script.gs). Để trống = chưa nhận đơn được.
   SCRIPT_URL: "https://script.google.com/macros/s/AKfycbwxUp6_ukNcBAcXpyM-JHAYUJOVHKJk-hJs4DITjdZ1nKyxW3LMQdf3LnWrk8RvOoz-ow/exec",
   // Hết hạn pre-order (ISO, múi giờ +07). Sau mốc này form tự đóng. Để trống = không giới hạn.
-  DEADLINE: "2026-10-20T23:59:00+07:00",
-  PILL_DATES: "17/10 – 20/10",
+  DEADLINE: "2026-11-27T23:59:00+07:00",
+  PILL_DATES: "21/11 – 27/11",
   STEPS: [
-    {date:"17/10 – 20/10", title:"Pre-order", desc:"Điền form và chuyển khoản để giữ chỗ."},
-    {date:"20/10 – 30/10", title:"Sản xuất", desc:"Dự kiến sản xuất sau khi chốt đơn."},
-    {date:"31/10 – 06/11", title:"Giao hàng", desc:"Bắt đầu giao hàng. Nhận tại phòng tập hoặc ship tận nơi."}
+    {date:"21/11 – 27/11", title:"Pre-order", desc:"Điền form và chuyển khoản để giữ chỗ."},
+    {date:"Sau khi chốt đơn", title:"Sản xuất", desc:"Sản xuất sau khi đóng pre-order. Thời gian cụ thể sẽ được thông báo."},
+    {date:"Sẽ thông báo", title:"Giao hàng", desc:"Bắt đầu giao hàng. Nhận tại phòng tập hoặc ship tận nơi."}
   ],
   PICKUP: "36 A4, Phường Bảy Hiền, HCM",
   BANK: {name:"VPBank", code:"VPB", account:"0987830414", holder:"PHAN TRUNG HIẾU"},
@@ -652,7 +652,7 @@ const faqs=[
   ["Nhận hàng ở đâu?","Nhận trực tiếp tại phòng tập "+CONFIG.PICKUP+", hoặc nhập địa chỉ để giao tận nơi. Phí vận chuyển bạn trả cho shipper."],
   ["Chọn size thế nào?","Mỗi sản phẩm chọn một size, combo dùng chung một size cho cả áo và shorts. Xem bảng size theo chiều cao và cân nặng, nếu nằm giữa hai size thì chọn size lớn hơn."],
   ["Mình có thể đặt chung với bạn tập không?","Được. Bấm Thêm sản phẩm trong form để đặt nhiều bộ trong một đơn, mỗi bộ chọn size riêng."],
-  ["Khi nào nhận được hàng?","Dự kiến bắt đầu giao từ 31/10 đến 06/11, sau khi đóng pre-order ngày 20/10 và sản xuất từ 20/10 đến 30/10."]
+  ["Khi nào nhận được hàng?","Pre-order đóng ngày 27/11, sau đó là thời gian sản xuất. Ban tổ chức sẽ thông báo lịch giao hàng cụ thể cho bạn."]
 ];
 $("#faqList").innerHTML=faqs.map(f=>`<details><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join("");
 
