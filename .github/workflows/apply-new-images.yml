@@ -1,0 +1,31 @@
+name: apply-new-images
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply
+        run: |
+          set -e
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq imagemagick fonts-dejavu-core
+          if command -v magick >/dev/null; then C=magick; else C=convert; fi
+          for p in f1 f3 long m1 m3 m4 m5 short ta; do
+            $C $p.png -resize '1400x>' -strip -quality 82 $p.jpg
+            git rm -q -f $p.png
+          done
+          git mv -f Logo-white.png logo-white.png
+          for p in m1 f1 m3 f3; do $C $p.jpg -resize 300x630^ -gravity north -extent 300x630 +repage p_$p.jpg; done
+          $C p_m1.jpg p_f1.jpg p_m3.jpg p_f3.jpg +append strip.jpg
+          $C strip.jpg -fill '#04122e' -colorize 58% shade.jpg
+          $C shade.jpg \( logo-white.png -resize 500x \) -gravity west -geometry +70-50 -composite -font DejaVu-Sans -pointsize 26 -fill white -gravity southwest -annotate +74+70 'SGS GENESIS  -  Every legacy has a beginning.' -font DejaVu-Sans-Bold -pointsize 30 -fill '#C6FF34' -annotate +74+118 'PRE-ORDER  21/11 - 27/11' -quality 86 og.jpg
+          rm -f p_*.jpg strip.jpg shade.jpg
+          ls -la *.jpg *.png
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add -A
+          git commit -m "Apply new images and refresh social preview"
+          git push
