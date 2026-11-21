@@ -1,0 +1,32 @@
+name: apply-images-2
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Convert new PNGs, remove look-short
+        run: |
+          set -e
+          shopt -s nullglob
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq imagemagick
+          C=convert
+          command -v magick >/dev/null && C=magick
+          for f in *.png; do
+            case "$f" in logo-white.png|monogram-white.png|focus-mark.png) continue;; esac
+            b="${f%.png}"
+            echo "convert $f"
+            $C "$f" -resize '1400x>' -strip -quality 82 "$b.jpg"
+            git rm -q -f "$f"
+          done
+          git rm -q -f look-short.jpg || true
+          sed -i '/lookShort/d' index.html
+          echo "lookShort left: $(grep -c lookShort index.html || true)"
+          git config user.name actions-user
+          git config user.email actions@github.com
+          git add -A
+          git commit -m "Apply new lookbook images, remove look-short" || echo nothing
+          git push
