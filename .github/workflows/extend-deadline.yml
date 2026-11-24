@@ -1,0 +1,32 @@
+name: extend-deadline
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/extend-deadline.yml'
+permissions:
+  contents: write
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extend to 30/11
+        run: |
+          set -e
+          sed -i 's#2026-11-27T23:59:00+07:00#2026-11-30T23:59:00+07:00#; s#21/11 – 27/11#21/11 – 30/11#g; s#đóng ngày 27/11#đóng ngày 30/11#' index.html
+          grep -n '27/11\|11-27' index.html || echo "no 27/11 left"
+          grep -n '30/11\|11-30' index.html
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq imagemagick fonts-dejavu-core
+          if command -v magick >/dev/null; then C=magick; else C=convert; fi
+          for p in m1 f1 m3 f3; do $C $p.jpg -resize 300x630^ -gravity north -extent 300x630 +repage p_$p.jpg; done
+          $C p_m1.jpg p_f1.jpg p_m3.jpg p_f3.jpg +append strip.jpg
+          $C strip.jpg -fill '#04122e' -colorize 58% shade.jpg
+          $C shade.jpg \( logo-white.png -resize 500x \) -gravity west -geometry +70-50 -composite -font DejaVu-Sans -pointsize 26 -fill white -gravity southwest -annotate +74+70 'SGS GENESIS - Every legacy has a beginning.' -font DejaVu-Sans-Bold -pointsize 30 -fill '#C6FF34' -annotate +74+118 'PRE-ORDER 21/11 - 30/11' -quality 86 og.jpg
+          rm -f p_*.jpg strip.jpg shade.jpg
+          git config user.name github-actions
+          git config user.email actions@github.com
+          git add -A
+          git commit -m "Extend pre-order deadline to 30/11" || echo nothing
+          git push
